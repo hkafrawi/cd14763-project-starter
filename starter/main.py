@@ -122,7 +122,7 @@ class MemoryHook(HookProvider):
 
             if all_context:
                 context_block = "\n".join(all_context)
-                og_text = messages[-1]["context"][0]["text"]
+                og_text = messages[-1]["content"][0]["text"]
                 messages[-1]["content"][0]["text"] = (
                     f"Customer Context:\n{context_block}\n\n{og_text}")
                 logger.info(f"Retrieved {len(all_context)} memory items for actor {self.actor_id}")
@@ -381,10 +381,10 @@ async def invoke(payload, context=None):
                 system_prompt=SYSTEM_PROMPT,
 
             )
-            response = agent(user_input)
+            response = await agent.invoke_async(user_input)
             return response.message["content"][0]["text"]
     except Exception as e:
-        logging.error("Agent Invocation Failed")
+        logging.error(f"Agent Invocation Failed: {e}")
         return {"error": f"Agent invocation failed: {str(e)}"}
 
 
@@ -394,11 +394,13 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("payload", type=str)
     args = parser.parse_args()
-    response = asyncio.run(invoke(json.loads(args.payload)))
-    print(response)
 
+    #print(f"Input: {args.payload}")
+    response = asyncio.run(invoke(json.loads(args.payload)))
+
+    #print(f"Output: {response}")
 
 if __name__ == "__main__":
-    # app.run()
+    app.run()
     # Uncomment the line below and comment app.run() for local CLI testing:
-    main()
+    # main()

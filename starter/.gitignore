@@ -1,3 +1,4 @@
 uv.lock
 .env
 \.bedrock_agentcore
+testing.py
