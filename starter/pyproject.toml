@@ -11,7 +11,12 @@ dependencies = [
     "chardet>=6.0.0.post1",
     "nest-asyncio>=1.6.0",
     "playwright>=1.58.0",
+    "python-dotenv>=1.2.3",
     "strands-agents>=1.28.0",
     "strands-agents-tools>=0.2.21",
     "urllib3>=2.6.3",
+]
+[tool.uv]
+override-dependencies = [
+    "pywin32; sys_platform == 'win32'",
 ]
