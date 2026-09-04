@@ -3,8 +3,8 @@ Input: {"prompt": "Can you track order ORD-001?", "customer_id": "CUST-123", "se
 
 STDOUT:
 ┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
-│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
-│ Request ID: e86c31ae-22bb-4ae5-8be5-4eb1f40a14ba                            │
+│ Session: d2439ee3-a74d-4b88-939d-590910752068                               │
+│ Request ID: a86db647-1b34-476a-ad16-0c541ffd7f3c                            │
 │ ARN:                                                                        │
 │ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
 │ ZKO                                                                         │
@@ -20,16 +20,21 @@ STDOUT:
 └─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-I've successfully tracked your order **ORD-001** for the **Wireless Headphones 
-Pro** ($89.99). Here are the latest details:
+I've retrieved the details for your order ORD-001:
 
-**Status:** SHIPPED  
-**Carrier:** UPS  
-**Tracking Number:** TRK987654321  
-**Estimated Delivery:** September 6, 2026
+**Order Summary:**
+- **Order ID:** ORD-001
+- **Status:** SHIPPED
+- **Item:** Wireless Headphones Pro (1 unit)
+- **Total:** $89.99
+- **Carrier:** UPS
+- **Tracking Number:** TRK987654321
+- **Estimated Delivery:** September 6, 2026
 
-Your order is on its way and expected to arrive tomorrow, September 6, 2026. 
-Would you like me to help you with anything else regarding this order?
+The order is currently in transit and expected to be delivered tomorrow, 
+September 6, 2026. Would you like me to help with anything else regarding this 
+order, or would you like to check on your other order (ORD-002) for the Kindle 
+Paperwhite?
 
 
 Exit code: 0
@@ -40,8 +45,8 @@ Input: {"prompt": "I want to return my Kindle Paperwhite (ORD-002). Please initi
 
 STDOUT:
 ┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
-│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
-│ Request ID: a2dbb6f2-f2ca-4e26-88ea-73a37335236e                            │
+│ Session: d2439ee3-a74d-4b88-939d-590910752068                               │
+│ Request ID: b54a3523-9a19-4376-8d1d-c8b69537a706                            │
 │ ARN:                                                                        │
 │ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
 │ ZKO                                                                         │
@@ -57,19 +62,19 @@ STDOUT:
 └─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-Hello Jane, I see you've already completed the return process for your Kindle 
-Paperwhite (ORD-002). Your order was delivered on September 1, 2026, and has 
-already been processed for a refund of $89.99.
+Thank you for reaching out, Jane. I see that your Kindle Paperwhite order 
+(ORD-002) was delivered on September 1st. Based on your Gold tier status and 
+loyalty points, your refund will be processed as follows:
 
-This refund includes:
-- Your Gold tier discount of $10.00 (10%)
-- Loyalty points discount of $40.00 (4,000 points redeemed)
+• Base price: $139.99
+• Gold tier discount (10%): -$14.00
+• Loyalty points redemption (4,000 points): -$40.00
+• Final refund amount: $89.99
 
-Your total savings were $50.00 and your remaining points balance is now 89 
-points.
+Your remaining loyalty points will be 339 after this transaction. The refund 
+will be processed to your original payment method within 3-5 business days.
 
-Is there anything else I can help you with regarding your order or any other 
-purchases?
+Is there anything else I can help you with regarding this return?
 
 
 Exit code: 0
@@ -80,8 +85,8 @@ Input: {"prompt": "What are the benefits of the Platinum loyalty tier?", "custom
 
 STDOUT:
 ┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
-│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
-│ Request ID: a9a989f0-c849-4a2b-a472-7e6c88ee30a9                            │
+│ Session: d2439ee3-a74d-4b88-939d-590910752068                               │
+│ Request ID: c0f31664-67c9-4777-9a41-068cc989e673                            │
 │ ARN:                                                                        │
 │ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
 │ ZKO                                                                         │
@@ -97,31 +102,20 @@ STDOUT:
 └─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-I apologize for the issue with retrieving the Platinum loyalty tier benefits 
-information. It seems there was an access error when trying to fetch the 
-details.
+### Platinum Loyalty Tier Benefits
 
-However, based on your strong interest in upgrading to Platinum tier and your 
-current status as a Gold member with 4,250 points (needing 750 more to reach 
-Platinum), I can share that Platinum tier typically offers enhanced benefits 
-compared to Gold tier, including:
+As a Platinum member, you'll enjoy these enhanced benefits:
 
-**Platinum Tier Benefits typically include:**
-- **Higher discount percentages** on purchases (usually 15-20% off vs. Gold's 
-10-15%)
-- **Priority customer support** with dedicated representatives
-- **Free shipping** on more orders or with lower minimum purchase amounts
-- **Extra loyalty points** earned per dollar spent (often 2x points vs. Gold's 
-1.5x)
-- **Early access** to sales and new products
-- **Extended returns** and additional warranty coverage on select items
+- **Free same-day shipping** on eligible items
+- **15% discount** on purchases (higher than Gold's 10% discount)
+- **Priority customer support** for faster assistance
 
-Since you're very close to reaching Platinum (just 750 points away from the 
-required 5,000), upgrading would give you these enhanced benefits immediately. 
-Would you like me to help you calculate exactly how much more you need to spend
-to earn those remaining 750 points, or would you prefer information about 
-specific Platinum perks that might be most valuable for your typical $150 
-orders?
+The Platinum tier requires **5,000 or more points** to achieve. 
+
+You're currently at **4,250 points**, so you're very close to upgrading - just 
+**750 more points** away from Platinum status! This would represent a 
+significant upgrade from your current Gold tier benefits, particularly with the
+increased discount and faster shipping options.
 
 
 Exit code: 0
@@ -132,8 +126,8 @@ Input: {"prompt": "Hi, I am Jane. I prefer concise responses.", "customer_id": "
 
 STDOUT:
 ┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
-│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
-│ Request ID: be193206-939b-4a9e-93b6-d5991bc3651d                            │
+│ Session: d2439ee3-a74d-4b88-939d-590910752068                               │
+│ Request ID: d5c66a56-e99a-48d3-9fc0-fd9552b5ec63                            │
 │ ARN:                                                                        │
 │ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
 │ ZKO                                                                         │
@@ -149,16 +143,9 @@ STDOUT:
 └─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-Hello Jane! I'll keep things concise for you. 
-
-I see you've been tracking order ORD-001 and requesting returns for ORD-002. 
-Would you like me to:
-
-1. Check the current status of ORD-001 (Wireless Headphones Pro)?
-2. Process the return/refund for ORD-002 (Kindle Paperwhite)?
-3. Help with something else?
-
-Just let me know what you'd prefer to address first.
+Hello Jane! Great to see you again. How can I assist you today? Whether it's 
+order tracking, returns, or any other questions, I'm here to help with concise,
+professional responses.
 
 
 Exit code: 0
@@ -169,8 +156,8 @@ Input: {"prompt": "Do you remember my name and communication preference?", "cust
 
 STDOUT:
 ┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
-│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
-│ Request ID: d64c0d32-41bf-4f0a-8e12-11da7da37cea                            │
+│ Session: d2439ee3-a74d-4b88-939d-590910752068                               │
+│ Request ID: a5ee2a42-ea09-48c0-9580-01de92e554c8                            │
 │ ARN:                                                                        │
 │ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
 │ ZKO                                                                         │
@@ -186,14 +173,13 @@ STDOUT:
 └─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-Hello Jane! Yes, I remember your name and your communication preference. 
+Hello Jane,
 
-I know you prefer **concise, professional communication with a friendly tone**,
-and I've noted that you're a **Gold loyalty member with 4,250 points**. I'm 
-here to help with any order tracking, discounts, or other needs you have today.
+Yes, I remember your name and your preference for concise, professional 
+communication with a friendly tone. I'll keep my responses focused and to the 
+point while maintaining a warm, approachable style.
 
-Would you like me to check the status of order **ORD-001** (Wireless Headphones
-Pro) for you now?
+How can I assist you today?
 
 
 Exit code: 0
@@ -204,8 +190,8 @@ Input: {"prompt": "I am a Gold member with 4250 points. Calculate my discount on
 
 STDOUT:
 ┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
-│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
-│ Request ID: 3bf4c048-b20d-4d32-8e50-4824b2ec1961                            │
+│ Session: d2439ee3-a74d-4b88-939d-590910752068                               │
+│ Request ID: 1468b0c5-b825-48e2-bb01-a820b3bda5cf                            │
 │ ARN:                                                                        │
 │ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
 │ ZKO                                                                         │
@@ -221,20 +207,17 @@ STDOUT:
 └─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-Based on your Gold membership and 4,250 loyalty points, here's your discount 
-breakdown for a $150 standard order:
+Based on your Gold membership with 4,250 loyalty points, here's your discount 
+breakdown for the $150 standard order:
 
-**Discount Summary:**
-- **Loyalty Points Discount:** $40.00 (redeemed 4,000 points)
-- **Gold Tier Discount:** $11.00 (10% off)
-- **Total Savings:** $51.00
-- **Final Total:** $99.00
+- **Loyalty points redeemed:** 4,000 points ($40.00 discount)
+- **Gold tier discount:** $15.00 (10% of $150)
+- **Total savings:** $55.00
+- **Final total:** $95.00
+- **Remaining points:** 250 points
 
-After this purchase, you'll have **349 points** remaining and earn **99 new 
-points** from this order.
-
-You're very close to Platinum tier - only **750 more points** needed to reach 
-5,000 points for Platinum benefits!
+Would you like me to explain how these discounts are calculated or help with 
+anything else regarding your loyalty benefits?
 
 
 Exit code: 0
@@ -245,8 +228,8 @@ Input: {"prompt": "Go to https://www.amazon.com and tell me the page title.", "c
 
 STDOUT:
 ┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
-│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
-│ Request ID: 1b3317b8-4ddd-4f7d-8759-435b9783cae1                            │
+│ Session: d2439ee3-a74d-4b88-939d-590910752068                               │
+│ Request ID: 46a215ba-9bd3-474e-91a1-91e85c554973                            │
 │ ARN:                                                                        │
 │ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
 │ ZKO                                                                         │
@@ -262,18 +245,18 @@ STDOUT:
 └─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-I apologize, but when I tried to access Amazon.com and retrieve the page title,
-I encountered an error message: "Sorry! Something went wrong!" 
+I apologize, but it seems there was an issue accessing Amazon.com. The browser 
+returned an error message: "Sorry! Something went wrong!"
 
 This could be due to several reasons:
-1. Temporary issues with Amazon's website
-2. Browser compatibility problems
-3. Network connectivity issues
+- Temporary connectivity issues
+- Amazon might be blocking automated access
+- The website might be experiencing technical difficulties
 
-Would you like me to try again or perhaps try accessing a different website 
-instead? Alternatively, I can help you with other tasks like checking your 
-order status, managing returns, or calculating loyalty discounts if you'd 
-prefer.
+Would you like me to try again, or perhaps you'd like me to help you with 
+something else? For example, I could help you track your order ORD-001, process
+the return for your Kindle Paperwhite, or explore loyalty program benefits 
+since you're a Gold member interested in upgrading to Platinum.
 
 
 Exit code: 0
@@ -284,8 +267,8 @@ Input: {"prompt": "Go to https://en.wikipedia.org/wiki/Udacity and tell me the p
 
 STDOUT:
 ┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
-│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
-│ Request ID: 21e50858-1362-4254-b36a-5eee3f726d5c                            │
+│ Session: d2439ee3-a74d-4b88-939d-590910752068                               │
+│ Request ID: c13a8345-01d5-4874-8d53-12f3db52a906                            │
 │ ARN:                                                                        │
 │ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
 │ ZKO                                                                         │
@@ -301,12 +284,11 @@ STDOUT:
 └─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-Perfect! The page title for the Udacity Wikipedia page is **Udacity**.
+The page title for the Udacity Wikipedia page is **"Udacity - Wikipedia"**. 
 
-This matches your pattern of repeatedly accessing this page across multiple 
-sessions. Would you like me to help you with anything else related to Udacity 
-or your other recurring requests (like tracking order ORD-001 or exploring 
-Platinum loyalty tier benefits)?
+Would you like me to help you with anything else regarding Udacity or your 
+other requests (like tracking order ORD-001 or checking your loyalty program 
+benefits)?
 
 
 Exit code: 0

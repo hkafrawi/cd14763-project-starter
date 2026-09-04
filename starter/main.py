@@ -191,16 +191,23 @@ def search_knowledge_base(query: str) -> str:
     """
     if not KB_ID:
         logger.error("Knowledge base not configured")
-        return
+        return "Knowledge base is not configured. Please try again later or contact support."
 
-    response = _bedrock_runtime.retrieve(
-        knowledgeBaseId=KB_ID,
-        retrievalQuery={"text":query}
-    )
-    results = response.get("retrievalResults",[])
+    try:
+        response = _bedrock_runtime.retrieve(
+            knowledgeBaseId=KB_ID,
+            retrievalQuery={"text": query}
+        )
+
+    except Exception as e:
+        logger.error(f"[search_knowledge_base] retrieve() failed for query={query!r}: {e}")
+        return f"I wasn't able to search the knowledge base right now. Error: {type(e).__name__}"
+
+    results = response.get("retrievalResults", [])
     if not results:
-        logger.info(f"No Information found for: {query}")
+        logger.info(f"No information found for: {query}")
         return f"No information found for: {query}"
+
     chunks = [result["content"]["text"] for result in results]
     return "\n---\n".join(chunks)
 
@@ -256,15 +263,9 @@ def calculate_loyalty_discount(
             remaining_points = loyalty_points - points_redeemed + points_earned
 
             result = {{
-                "order_total": round(order_total, 2),
                 "points_redeemed": points_redeemed,
-                "points_discount": round(points_discount, 2),
-                "tier": tier,
                 "tier_discount_pct": tier_discount_pct,
-                "tier_discount": round(tier_discount, 2),
                 "final_total": round(final_total, 2),
-                "total_savings": round(total_savings, 2),
-                "points_earned": points_earned,
                 "remaining_points": remaining_points,
             }}
 
@@ -274,27 +275,36 @@ def calculate_loyalty_discount(
     try:
         with code_session(REGION) as code_client:
             response = code_client.invoke(
-                "executeCode",{
+                "executeCode", {
                     "code": code,
                     "language": "python",
                     "clearContext": True
                 }
             )
+        result_payload = None
+
         for event in response["stream"]:
-            return json.dumps(event["result"])
+            if "result" in event:
+                result_payload = event["result"]["content"][0]["text"]
+                break
+
+        if result_payload is None:
+            raise ValueError("No result event found in Code Interpreter stream")
+
+        return result_payload
 
     except Exception as e:
-       logging.error(f"Code Interperter unavailable with the following error: {e}")
-       tier_rates = {"Silver": 0.00, "Gold": 0.10, "Platinum": 0.15}
-       tier_discount_rate = tier_rates.get(tier, 0.0)
-       tier_discount = order_total * tier_discount_rate
-       final_total = order_total - tier_discount
+        logging.error(f"Code Interpreter unavailable with the following error: {e}")
+        tier_rates = {"Silver": 0.00, "Gold": 0.10, "Platinum": 0.15}
+        tier_discount_pct = tier_rates.get(tier, 0.0)
+        tier_discount = order_total * tier_discount_pct
+        final_total = order_total - tier_discount
 
-       return json.dumps({
+        return json.dumps({
+            "points_redeemed": 0,
+            "tier_discount_pct": tier_discount_pct,
             "final_total": round(final_total, 2),
-            "total_savings": round(tier_discount, 2),
-            "tier": tier,
-            "tier_discount_rate": tier_discount_rate
+            "remaining_points": loyalty_points,
         })
 
 SYSTEM_PROMPT = """
@@ -335,6 +345,16 @@ Guidelines:
   always use the appropriate tool.
 - If a tool fails or information truly isn't available, tell the customer
   honestly and offer to help another way.
+- When a tool returns specific values (amounts, dates, points, statuses,
+  tracking numbers), report those exact values back to the customer.
+  Do not recalculate, round differently, or restate them from memory —
+  quote the tool's output as ground truth for that response.
+- If memory or prior conversation suggests a number that conflicts with
+  what a tool just returned, the tool's fresh result always wins. Memory
+  is for tone, names, and preferences — never for factual values that a
+  tool is responsible for computing or retrieving.
+- If you are ever unsure whether a number in your response came from a
+  tool call in this turn, call the tool again rather than guess.
 """
 
 @app.entrypoint
