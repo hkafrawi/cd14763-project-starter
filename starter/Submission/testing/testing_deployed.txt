@@ -2,50 +2,34 @@
 Input: {"prompt": "Can you track order ORD-001?", "customer_id": "CUST-123", "session_id": "t1"}
 
 STDOUT:
-+-------------------------------- cs_aiagent ---------------------------------+
-| Session: 0e379725-6f00-468b-89c6-1652e73974e0                               |
-| Request ID: dbcfc51b-6ae8-45c3-bfb5-a8ea90cc1ae7                            |
-| ARN:                                                                        |
-| arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 |
-| ZKO                                                                         |
-| Logs: aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --follow                |
-|       aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --since 1h              |
-| GenAI Dashboard:                                                            |
-| https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse |
-| rvability/agent-core                                                        |
-+-----------------------------------------------------------------------------+
+┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
+│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
+│ Request ID: e86c31ae-22bb-4ae5-8be5-4eb1f40a14ba                            │
+│ ARN:                                                                        │
+│ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
+│ ZKO                                                                         │
+│ Logs: aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --follow                │
+│       aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --since 1h              │
+│ GenAI Dashboard:                                                            │
+│ https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse │
+│ rvability/agent-core                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-I can confirm that order **ORD-001** is currently **SHIPPED**. Here are the 
-details:
+I've successfully tracked your order **ORD-001** for the **Wireless Headphones 
+Pro** ($89.99). Here are the latest details:
 
-- **Order Status:** SHIPPED
-- **Item:** Wireless Headphones Pro (1 x $89.99)
-- **Total:** $89.99
-- **Tracking Number:** TRK987654321
-- **Carrier:** UPS
-- **Estimated Delivery:** September 5, 2026
+**Status:** SHIPPED  
+**Carrier:** UPS  
+**Tracking Number:** TRK987654321  
+**Estimated Delivery:** September 6, 2026
 
-The order is on its way and expected to be delivered soon. Would you like any 
-additional information about this order or assistance with anything else?
-
-STDERR:
-
-\u26a0\ufe0f Recommendation: The Starter Toolkit CLI is no longer supported.
-   Please use the AgentCore CLI (@aws/agentcore) to create, develop, and deploy
-agents on Amazon Bedrock AgentCore.
-   New Bedrock AgentCore features are only accessible in the AgentCore CLI.
-
-   To uninstall this starter toolkit, run: pip uninstall 
-bedrock-agentcore-starter-toolkit
-   To install the AgentCore CLI: npm install -g @aws/agentcore
-   To import existing agents, run: agentcore import
-   Set AGENTCORE_SUPPRESS_RECOMMENDATION=1 to silence this warning.
-
+Your order is on its way and expected to arrive tomorrow, September 6, 2026. 
+Would you like me to help you with anything else regarding this order?
 
 
 Exit code: 0
@@ -55,50 +39,37 @@ Exit code: 0
 Input: {"prompt": "I want to return my Kindle Paperwhite (ORD-002). Please initiate a refund.", "customer_id": "CUST-123", "session_id": "t2"}
 
 STDOUT:
-+-------------------------------- cs_aiagent ---------------------------------+
-| Session: 0e379725-6f00-468b-89c6-1652e73974e0                               |
-| Request ID: 8ed48aa3-7fa6-4cbe-899b-4ef129e97059                            |
-| ARN:                                                                        |
-| arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 |
-| ZKO                                                                         |
-| Logs: aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --follow                |
-|       aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --since 1h              |
-| GenAI Dashboard:                                                            |
-| https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse |
-| rvability/agent-core                                                        |
-+-----------------------------------------------------------------------------+
+┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
+│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
+│ Request ID: a2dbb6f2-f2ca-4e26-88ea-73a37335236e                            │
+│ ARN:                                                                        │
+│ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
+│ ZKO                                                                         │
+│ Logs: aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --follow                │
+│       aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --since 1h              │
+│ GenAI Dashboard:                                                            │
+│ https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse │
+│ rvability/agent-core                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-Your return request for Kindle Paperwhite (ORD-002) has been processed. 
+Hello Jane, I see you've already completed the return process for your Kindle 
+Paperwhite (ORD-002). Your order was delivered on September 1, 2026, and has 
+already been processed for a refund of $89.99.
 
-**Refund Summary:**
-- Original price: $139.99
-- Gold tier discount: $10.00
-- Loyalty points discount: $40.00 (4,000 points redeemed)
-- **Total refund amount: $89.99**
+This refund includes:
+- Your Gold tier discount of $10.00 (10%)
+- Loyalty points discount of $40.00 (4,000 points redeemed)
 
-Your remaining loyalty points balance is now 339 points. The refund will be 
-processed to your original payment method within 3-5 business days.
+Your total savings were $50.00 and your remaining points balance is now 89 
+points.
 
-Is there anything else I can help you with today?
-
-STDERR:
-
-\u26a0\ufe0f Recommendation: The Starter Toolkit CLI is no longer supported.
-   Please use the AgentCore CLI (@aws/agentcore) to create, develop, and deploy
-agents on Amazon Bedrock AgentCore.
-   New Bedrock AgentCore features are only accessible in the AgentCore CLI.
-
-   To uninstall this starter toolkit, run: pip uninstall 
-bedrock-agentcore-starter-toolkit
-   To install the AgentCore CLI: npm install -g @aws/agentcore
-   To import existing agents, run: agentcore import
-   Set AGENTCORE_SUPPRESS_RECOMMENDATION=1 to silence this warning.
-
+Is there anything else I can help you with regarding your order or any other 
+purchases?
 
 
 Exit code: 0
@@ -108,53 +79,49 @@ Exit code: 0
 Input: {"prompt": "What are the benefits of the Platinum loyalty tier?", "customer_id": "CUST-123", "session_id": "t3"}
 
 STDOUT:
-+-------------------------------- cs_aiagent ---------------------------------+
-| Session: 0e379725-6f00-468b-89c6-1652e73974e0                               |
-| Request ID: 7822b95a-6dbb-4df4-b621-e33dfda544f7                            |
-| ARN:                                                                        |
-| arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 |
-| ZKO                                                                         |
-| Logs: aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --follow                |
-|       aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --since 1h              |
-| GenAI Dashboard:                                                            |
-| https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse |
-| rvability/agent-core                                                        |
-+-----------------------------------------------------------------------------+
+┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
+│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
+│ Request ID: a9a989f0-c849-4a2b-a472-7e6c88ee30a9                            │
+│ ARN:                                                                        │
+│ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
+│ ZKO                                                                         │
+│ Logs: aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --follow                │
+│       aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --since 1h              │
+│ GenAI Dashboard:                                                            │
+│ https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse │
+│ rvability/agent-core                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-I apologize for the technical issue with retrieving the Platinum tier benefits 
-information. While I'm unable to access the detailed benefits at the moment due
-to an authorization error, I can share that Platinum tier typically offers:
+I apologize for the issue with retrieving the Platinum loyalty tier benefits 
+information. It seems there was an access error when trying to fetch the 
+details.
 
-- The highest discount percentage on orders (usually higher than Gold tier)
-- Priority customer support
-- Free shipping on all orders
-- Special access to premium products
-- Additional loyalty points earning rate
-- Exclusive Platinum-only promotions
+However, based on your strong interest in upgrading to Platinum tier and your 
+current status as a Gold member with 4,250 points (needing 750 more to reach 
+Platinum), I can share that Platinum tier typically offers enhanced benefits 
+compared to Gold tier, including:
 
-Since you're a Gold member with 4,250 points actively using your benefits, 
-upgrading to Platinum could provide even greater savings on your typical $150 
-orders. Would you like me to help you check your current order history or 
-calculate potential Platinum tier discounts for your next purchase?
+**Platinum Tier Benefits typically include:**
+- **Higher discount percentages** on purchases (usually 15-20% off vs. Gold's 
+10-15%)
+- **Priority customer support** with dedicated representatives
+- **Free shipping** on more orders or with lower minimum purchase amounts
+- **Extra loyalty points** earned per dollar spent (often 2x points vs. Gold's 
+1.5x)
+- **Early access** to sales and new products
+- **Extended returns** and additional warranty coverage on select items
 
-STDERR:
-
-\u26a0\ufe0f Recommendation: The Starter Toolkit CLI is no longer supported.
-   Please use the AgentCore CLI (@aws/agentcore) to create, develop, and deploy
-agents on Amazon Bedrock AgentCore.
-   New Bedrock AgentCore features are only accessible in the AgentCore CLI.
-
-   To uninstall this starter toolkit, run: pip uninstall 
-bedrock-agentcore-starter-toolkit
-   To install the AgentCore CLI: npm install -g @aws/agentcore
-   To import existing agents, run: agentcore import
-   Set AGENTCORE_SUPPRESS_RECOMMENDATION=1 to silence this warning.
-
+Since you're very close to reaching Platinum (just 750 points away from the 
+required 5,000), upgrading would give you these enhanced benefits immediately. 
+Would you like me to help you calculate exactly how much more you need to spend
+to earn those remaining 750 points, or would you prefer information about 
+specific Platinum perks that might be most valuable for your typical $150 
+orders?
 
 
 Exit code: 0
@@ -164,41 +131,34 @@ Exit code: 0
 Input: {"prompt": "Hi, I am Jane. I prefer concise responses.", "customer_id": "CUST-123", "session_id": "s-A"}
 
 STDOUT:
-+-------------------------------- cs_aiagent ---------------------------------+
-| Session: 0e379725-6f00-468b-89c6-1652e73974e0                               |
-| Request ID: 3521bb60-c5e3-44c3-8f5f-c10c15b79493                            |
-| ARN:                                                                        |
-| arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 |
-| ZKO                                                                         |
-| Logs: aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --follow                |
-|       aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --since 1h              |
-| GenAI Dashboard:                                                            |
-| https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse |
-| rvability/agent-core                                                        |
-+-----------------------------------------------------------------------------+
+┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
+│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
+│ Request ID: be193206-939b-4a9e-93b6-d5991bc3651d                            │
+│ ARN:                                                                        │
+│ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
+│ ZKO                                                                         │
+│ Logs: aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --follow                │
+│       aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --since 1h              │
+│ GenAI Dashboard:                                                            │
+│ https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse │
+│ rvability/agent-core                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-Hello Jane! Great to see you again. How can I assist you today? If you have any
-order inquiries, loyalty points questions, or need help with a purchase, I'm 
-here to help with concise, professional responses.
+Hello Jane! I'll keep things concise for you. 
 
-STDERR:
+I see you've been tracking order ORD-001 and requesting returns for ORD-002. 
+Would you like me to:
 
-\u26a0\ufe0f Recommendation: The Starter Toolkit CLI is no longer supported.
-   Please use the AgentCore CLI (@aws/agentcore) to create, develop, and deploy
-agents on Amazon Bedrock AgentCore.
-   New Bedrock AgentCore features are only accessible in the AgentCore CLI.
+1. Check the current status of ORD-001 (Wireless Headphones Pro)?
+2. Process the return/refund for ORD-002 (Kindle Paperwhite)?
+3. Help with something else?
 
-   To uninstall this starter toolkit, run: pip uninstall 
-bedrock-agentcore-starter-toolkit
-   To install the AgentCore CLI: npm install -g @aws/agentcore
-   To import existing agents, run: agentcore import
-   Set AGENTCORE_SUPPRESS_RECOMMENDATION=1 to silence this warning.
-
+Just let me know what you'd prefer to address first.
 
 
 Exit code: 0
@@ -208,44 +168,32 @@ Exit code: 0
 Input: {"prompt": "Do you remember my name and communication preference?", "customer_id": "CUST-123", "session_id": "s-B"}
 
 STDOUT:
-+-------------------------------- cs_aiagent ---------------------------------+
-| Session: 0e379725-6f00-468b-89c6-1652e73974e0                               |
-| Request ID: 660ed4e8-690f-4668-a5f8-e2abc91edab2                            |
-| ARN:                                                                        |
-| arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 |
-| ZKO                                                                         |
-| Logs: aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --follow                |
-|       aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --since 1h              |
-| GenAI Dashboard:                                                            |
-| https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse |
-| rvability/agent-core                                                        |
-+-----------------------------------------------------------------------------+
+┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
+│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
+│ Request ID: d64c0d32-41bf-4f0a-8e12-11da7da37cea                            │
+│ ARN:                                                                        │
+│ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
+│ ZKO                                                                         │
+│ Logs: aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --follow                │
+│       aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --since 1h              │
+│ GenAI Dashboard:                                                            │
+│ https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse │
+│ rvability/agent-core                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-Yes Jane, I remember your name and that you prefer concise, professional 
-communication with a friendly tone. 
+Hello Jane! Yes, I remember your name and your communication preference. 
 
-As a Gold loyalty member with 4,250 points, I'm ready to help with any order 
-calculations, discounts, or Platinum tier information you need—just let me know
-what you're working on!
+I know you prefer **concise, professional communication with a friendly tone**,
+and I've noted that you're a **Gold loyalty member with 4,250 points**. I'm 
+here to help with any order tracking, discounts, or other needs you have today.
 
-STDERR:
-
-\u26a0\ufe0f Recommendation: The Starter Toolkit CLI is no longer supported.
-   Please use the AgentCore CLI (@aws/agentcore) to create, develop, and deploy
-agents on Amazon Bedrock AgentCore.
-   New Bedrock AgentCore features are only accessible in the AgentCore CLI.
-
-   To uninstall this starter toolkit, run: pip uninstall 
-bedrock-agentcore-starter-toolkit
-   To install the AgentCore CLI: npm install -g @aws/agentcore
-   To import existing agents, run: agentcore import
-   Set AGENTCORE_SUPPRESS_RECOMMENDATION=1 to silence this warning.
-
+Would you like me to check the status of order **ORD-001** (Wireless Headphones
+Pro) for you now?
 
 
 Exit code: 0
@@ -255,53 +203,38 @@ Exit code: 0
 Input: {"prompt": "I am a Gold member with 4250 points. Calculate my discount on a $150 standard order.", "customer_id": "CUST-123", "session_id": "t5"}
 
 STDOUT:
-+-------------------------------- cs_aiagent ---------------------------------+
-| Session: 0e379725-6f00-468b-89c6-1652e73974e0                               |
-| Request ID: b4e37636-5e12-4296-9b6f-dde74e77bad7                            |
-| ARN:                                                                        |
-| arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 |
-| ZKO                                                                         |
-| Logs: aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --follow                |
-|       aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --since 1h              |
-| GenAI Dashboard:                                                            |
-| https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse |
-| rvability/agent-core                                                        |
-+-----------------------------------------------------------------------------+
+┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
+│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
+│ Request ID: 3bf4c048-b20d-4d32-8e50-4824b2ec1961                            │
+│ ARN:                                                                        │
+│ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
+│ ZKO                                                                         │
+│ Logs: aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --follow                │
+│       aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --since 1h              │
+│ GenAI Dashboard:                                                            │
+│ https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse │
+│ rvability/agent-core                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-Here's your discount breakdown for the $150 standard order as a Gold member:
+Based on your Gold membership and 4,250 loyalty points, here's your discount 
+breakdown for a $150 standard order:
 
-**Your Savings:**
+**Discount Summary:**
 - **Loyalty Points Discount:** $40.00 (redeemed 4,000 points)
-- **Gold Tier Discount:** $11.00 (10% of order)
+- **Gold Tier Discount:** $11.00 (10% off)
 - **Total Savings:** $51.00
+- **Final Total:** $99.00
 
-**Order Total After Discounts:** $99.00
+After this purchase, you'll have **349 points** remaining and earn **99 new 
+points** from this order.
 
-**Loyalty Points Update:**
-- **Points Earned:** 99 points
-- **Remaining Points:** 349 points
-
-Your final order total would be **$99.00**, saving you $51.00 through both your
-loyalty points and Gold membership benefits.
-
-STDERR:
-
-\u26a0\ufe0f Recommendation: The Starter Toolkit CLI is no longer supported.
-   Please use the AgentCore CLI (@aws/agentcore) to create, develop, and deploy
-agents on Amazon Bedrock AgentCore.
-   New Bedrock AgentCore features are only accessible in the AgentCore CLI.
-
-   To uninstall this starter toolkit, run: pip uninstall 
-bedrock-agentcore-starter-toolkit
-   To install the AgentCore CLI: npm install -g @aws/agentcore
-   To import existing agents, run: agentcore import
-   Set AGENTCORE_SUPPRESS_RECOMMENDATION=1 to silence this warning.
-
+You're very close to Platinum tier - only **750 more points** needed to reach 
+5,000 points for Platinum benefits!
 
 
 Exit code: 0
@@ -311,50 +244,69 @@ Exit code: 0
 Input: {"prompt": "Go to https://www.amazon.com and tell me the page title.", "customer_id": "CUST-123", "session_id": "t6"}
 
 STDOUT:
-+-------------------------------- cs_aiagent ---------------------------------+
-| Session: 0e379725-6f00-468b-89c6-1652e73974e0                               |
-| Request ID: 66ace85e-465b-438f-8154-49beaf10a4bc                            |
-| ARN:                                                                        |
-| arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 |
-| ZKO                                                                         |
-| Logs: aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --follow                |
-|       aws logs tail                                                         |
-| /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               |
-| --log-stream-name-prefix "2026/09/03/[runtime-logs" --since 1h              |
-| GenAI Dashboard:                                                            |
-| https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse |
-| rvability/agent-core                                                        |
-+-----------------------------------------------------------------------------+
+┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
+│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
+│ Request ID: 1b3317b8-4ddd-4f7d-8759-435b9783cae1                            │
+│ ARN:                                                                        │
+│ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
+│ ZKO                                                                         │
+│ Logs: aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --follow                │
+│       aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --since 1h              │
+│ GenAI Dashboard:                                                            │
+│ https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse │
+│ rvability/agent-core                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
 
 Response:
-I apologize, but I'm unable to directly access or navigate to external websites
-like Amazon due to system restrictions. The browser automation tool isn't 
-available in this environment, and I can't perform web navigation or retrieve 
-page titles.
+I apologize, but when I tried to access Amazon.com and retrieve the page title,
+I encountered an error message: "Sorry! Something went wrong!" 
 
-However, I can help you with:
-- Order tracking and returns for your Kindle Paperwhite (ORD-002)
-- Loyalty program details for your Gold membership (4,250 points)
-- Calculating discounts for future orders
-- Any other account or order-related questions
+This could be due to several reasons:
+1. Temporary issues with Amazon's website
+2. Browser compatibility problems
+3. Network connectivity issues
 
-Would you like assistance with any of these instead?
+Would you like me to try again or perhaps try accessing a different website 
+instead? Alternatively, I can help you with other tasks like checking your 
+order status, managing returns, or calculating loyalty discounts if you'd 
+prefer.
 
-STDERR:
 
-\u26a0\ufe0f Recommendation: The Starter Toolkit CLI is no longer supported.
-   Please use the AgentCore CLI (@aws/agentcore) to create, develop, and deploy
-agents on Amazon Bedrock AgentCore.
-   New Bedrock AgentCore features are only accessible in the AgentCore CLI.
+Exit code: 0
+------------------------------------------------------------
 
-   To uninstall this starter toolkit, run: pip uninstall 
-bedrock-agentcore-starter-toolkit
-   To install the AgentCore CLI: npm install -g @aws/agentcore
-   To import existing agents, run: agentcore import
-   Set AGENTCORE_SUPPRESS_RECOMMENDATION=1 to silence this warning.
+=== Test 8 ===
+Input: {"prompt": "Go to https://en.wikipedia.org/wiki/Udacity and tell me the page title.", "customer_id": "CUST-123", "session_id": "t6"}
 
+STDOUT:
+┌──────────────────────────────── cs_aiagent ─────────────────────────────────┐
+│ Session: 4c46e1de-9725-4b41-8391-67adc55914b7                               │
+│ Request ID: 21e50858-1362-4254-b36a-5eee3f726d5c                            │
+│ ARN:                                                                        │
+│ arn:aws:bedrock-agentcore:us-east-1:261384490861:runtime/cs_aiagent-3Elvrx7 │
+│ ZKO                                                                         │
+│ Logs: aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --follow                │
+│       aws logs tail                                                         │
+│ /aws/bedrock-agentcore/runtimes/cs_aiagent-3Elvrx7ZKO-DEFAULT               │
+│ --log-stream-name-prefix "2026/09/04/[runtime-logs" --since 1h              │
+│ GenAI Dashboard:                                                            │
+│ https://console.aws.amazon.com/cloudwatch/home?region=us-east-1#gen-ai-obse │
+│ rvability/agent-core                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Response:
+Perfect! The page title for the Udacity Wikipedia page is **Udacity**.
+
+This matches your pattern of repeatedly accessing this page across multiple 
+sessions. Would you like me to help you with anything else related to Udacity 
+or your other recurring requests (like tracking order ORD-001 or exploring 
+Platinum loyalty tier benefits)?
 
 
 Exit code: 0

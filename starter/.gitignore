@@ -2,3 +2,6 @@ uv.lock
 .env
 \.bedrock_agentcore
 testing.py
+commands.sh
+current-policy.json
+.bedrock_agentcore.yaml

@@ -28,6 +28,7 @@ from mcp.client.streamable_http import streamable_http_client
 import argparse, json
 import os, asyncio, boto3
 from dotenv import load_dotenv
+import shutil
 
 from strands.hooks import (
     HookProvider, AfterInvocationEvent, HookRegistry, MessageAddedEvent,
@@ -244,8 +245,8 @@ def calculate_loyalty_discount(
 
             subtotal_after_points = order_total - points_discount
 
-            tier_discount_rate = tier_rates.get(tier, 0.0)
-            tier_discount = subtotal_after_points * tier_discount_rate
+            tier_discount_pct = tier_rates.get(tier, 0.0)
+            tier_discount = subtotal_after_points * tier_discount_pct
 
             final_total = subtotal_after_points - tier_discount
             total_savings = order_total - final_total
@@ -259,7 +260,7 @@ def calculate_loyalty_discount(
                 "points_redeemed": points_redeemed,
                 "points_discount": round(points_discount, 2),
                 "tier": tier,
-                "tier_discount_rate": tier_discount_rate,
+                "tier_discount_pct": tier_discount_pct,
                 "tier_discount": round(tier_discount, 2),
                 "final_total": round(final_total, 2),
                 "total_savings": round(total_savings, 2),
@@ -360,7 +361,21 @@ async def invoke(payload, context=None):
                                 memory_id=MEMORY_ID,
                                 memory_client=memory_client)
 
-        agent_core_browser = AgentCoreBrowser(region=REGION)
+       
+        # Playwright's driver binary is bundled under /var/task (read-only at runtime).
+        # Copy it to /tmp (writable), fix its executable bit there, and redirect
+        # Playwright to use that copy via its official env-var override.
+        source_driver = "/var/task/playwright/driver/node"
+        tmp_driver = "/tmp/playwright_driver_node"
+
+        if os.path.exists(source_driver) and not os.path.exists(tmp_driver):
+            shutil.copy2(source_driver, tmp_driver)
+            os.chmod(tmp_driver, 0o755)
+            logger.warning(f"Copied Playwright driver to {tmp_driver} with mode {oct(os.stat(tmp_driver).st_mode)}")
+
+        os.environ["PLAYWRIGHT_NODEJS_PATH"] = tmp_driver
+
+        agent_core_browser = AgentCoreBrowser(region=REGION,session_timeout=300)
 
         tools = [
             search_knowledge_base,
@@ -383,6 +398,11 @@ async def invoke(payload, context=None):
             )
             response = await agent.invoke_async(user_input)
             return response.message["content"][0]["text"]
+
+    except IndexError:
+        logger.warning(f"Agent returned no text content for input: {user_input!r}")
+        return "I wasn't able to complete that request. Could you try rephrasing, or ask something else?"
+
     except Exception as e:
         logging.error(f"Agent Invocation Failed: {e}")
         return {"error": f"Agent invocation failed: {str(e)}"}
@@ -398,7 +418,7 @@ def main():
     #print(f"Input: {args.payload}")
     response = asyncio.run(invoke(json.loads(args.payload)))
 
-    #print(f"Output: {response}")
+    print(f"\nOutput: {response}")
 
 if __name__ == "__main__":
     app.run()
